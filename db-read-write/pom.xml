@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>read-write</artifactId>
+    <artifactId>db-read-write</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.min.shardingsphere</groupId>

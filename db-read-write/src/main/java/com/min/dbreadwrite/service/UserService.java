@@ -1,6 +1,6 @@
-package com.min.readwrite.service;
+package com.min.dbreadwrite.service;
 
-import com.min.readwrite.entity.User;
+import com.min.dbreadwrite.entity.User;
 
 import java.util.List;
 

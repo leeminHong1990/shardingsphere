@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.min.readwrite.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.min.readwrite.entity.User">
+<mapper namespace="com.min.dbreadwrite.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.min.dbreadwrite.entity.User">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
@@ -21,7 +21,7 @@
     from tab_user
   </select>
 
-  <insert id="insert" parameterType="com.min.readwrite.entity.User">
+  <insert id="insert" parameterType="com.min.dbreadwrite.entity.User">
     insert into tab_user (id, name, sex, age, create_user, create_time, update_time, deleted, version)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
       #{age,jdbcType=INTEGER}, #{createUser,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},

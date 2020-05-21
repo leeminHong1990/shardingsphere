@@ -1,4 +1,4 @@
-package com.min.readwrite.config.component;
+package com.min.dbreadwrite.config.component;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;

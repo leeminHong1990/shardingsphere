@@ -1,8 +1,8 @@
-package com.min.readwrite.mapper;
+package com.min.dbreadwrite.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.min.readwrite.entity.User;
+import com.min.dbreadwrite.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

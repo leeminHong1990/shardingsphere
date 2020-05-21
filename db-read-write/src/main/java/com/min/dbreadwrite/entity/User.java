@@ -1,4 +1,4 @@
-package com.min.readwrite.entity;
+package com.min.dbreadwrite.entity;
 
 import com.min.common.entity.BaseEntity;
 import lombok.Builder;

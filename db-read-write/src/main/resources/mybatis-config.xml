@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="com.min.readwrite.entity"/>
+        <package name="com.min.dbreadwrite.entity"/>
     </typeAliases>
     <mappers>
         <mapper resource="mapper/UserMapper.xml"/>

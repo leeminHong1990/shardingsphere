@@ -1,8 +1,8 @@
-package com.min.readwrite.service.impl;
+package com.min.dbreadwrite.service.impl;
 
-import com.min.readwrite.entity.User;
-import com.min.readwrite.mapper.UserMapper;
-import com.min.readwrite.service.UserService;
+import com.min.dbreadwrite.entity.User;
+import com.min.dbreadwrite.mapper.UserMapper;
+import com.min.dbreadwrite.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

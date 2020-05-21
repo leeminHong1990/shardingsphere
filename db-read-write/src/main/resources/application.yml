@@ -21,7 +21,7 @@ spring:
         username: root
         password: 12345678
     masterslave:
-#      load-balance-algorithm-type: round_robin # 从库负载均衡算法类型，可选值：ROUND_ROBIN，RANDOM。若`loadBalanceAlgorithmClassName`存在则忽略该配置
+      load-balance-algorithm-type: round_robin # 从库负载均衡算法类型，可选值：ROUND_ROBIN，RANDOM。若`loadBalanceAlgorithmClassName`存在则忽略该配置
       name: "read-write"
       master-data-source-name: master
       slave-data-source-names: slave0,slave1

@@ -1,7 +1,7 @@
-package com.min.readwrite.config;
+package com.min.dbreadwrite.config;
 
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
-import com.min.readwrite.config.component.MyMetaObjectHandler;
+import com.min.dbreadwrite.config.component.MyMetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
