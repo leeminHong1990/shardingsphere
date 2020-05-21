@@ -5,7 +5,7 @@ spring:
       master: # 数据源 主库
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://111.231.237.182:3306/test?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://192.168.124.56:3306/test?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
         username: kbe
         password: 123456
       slave0: # 数据源 从库
