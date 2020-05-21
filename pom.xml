@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>read-write</module>
+        <module>common-lib</module>
     </modules>
 
     <parent>
@@ -25,6 +26,7 @@
         <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
         <mysql.connector.java.version>8.0.20</mysql.connector.java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mybatis.plus.version>3.3.1</mybatis.plus.version>
     </properties>
 
     <dependencies>
@@ -32,12 +34,28 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--mybatis驱动-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${mybatis-spring-boot}</version>
         </dependency>
-        <!--mybatis驱动-->
+        <!-- mybatis-plus相关依赖 -->
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.plus.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>${mybatis.plus.version}</version>
+        </dependency>
+        <!--mysql驱动-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
