@@ -1,4 +1,4 @@
-package com.min.dbreadwrite.config.component;
+package com.min.dbreadwrite.config.mybatisplus;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -45,10 +45,12 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("start update fill ....");
+        log.info("-------------------------------------");
         /**
          * 起始版本 3.3.0(推荐使用) 注意：BaseEntity使用LocalDateTime这里也要使用LocalDateTime类型,数据类型要保持一致。
          */
 //        this.strictUpdateFill(metaObject, "updateTime", LocalDateTime.class, LocalDateTime.now());
+        System.out.println((new Date()).getTime());
         this.strictUpdateFill(metaObject, "updateTime", Date.class, new Date());
 
 //        /**

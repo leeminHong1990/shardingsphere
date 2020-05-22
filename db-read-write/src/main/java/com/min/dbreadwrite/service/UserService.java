@@ -1,8 +1,11 @@
 package com.min.dbreadwrite.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.min.dbreadwrite.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xub
@@ -23,4 +26,11 @@ public interface UserService {
      */
     String saveOne(User user);
 
+    Integer update(User user);
+
+    User selectOne(Long id);
+
+    Integer delete(Long id);
+
+    IPage<Map<String, Object>> selectMapsPage(IPage<Map<String,Object>> page, Wrapper<User> queryWrapper);
 }

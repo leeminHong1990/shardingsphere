@@ -1,8 +1,11 @@
 package com.min.dbreadwrite.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.min.common.entity.BaseEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * user表
@@ -10,12 +13,15 @@ import lombok.Data;
  */
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@TableName(value = "tab_user")
 public class User extends BaseEntity {
 
     /**
      * 姓名
      */
-    private String name;
+    private String userName;
 
     /**
      * 性别
@@ -26,11 +32,4 @@ public class User extends BaseEntity {
      * 年龄
      */
     private Integer age;
-
-
-    public User(String name, String sex, Integer age) {
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
-    }
 }

@@ -1,18 +1,29 @@
 package com.min.common.param;
 
+import lombok.Builder;
 import lombok.Data;
-
-import java.util.Date;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author min
  */
+
 @Data
-public class UserParams {
+@EqualsAndHashCode(callSuper = true)
+public class UserParams extends BaseParams {
+
+    @Builder
+    public UserParams(Long id, Integer version, String userName, String sex, Integer age) {
+        super(id, version);
+        this.userName = userName;
+        this.sex = sex;
+        this.age = age;
+    }
+
     /**
      * 姓名
      */
-    private String name;
+    private String userName;
 
     /**
      * 性别
@@ -23,5 +34,4 @@ public class UserParams {
      * 年龄
      */
     private Integer age;
-
 }
