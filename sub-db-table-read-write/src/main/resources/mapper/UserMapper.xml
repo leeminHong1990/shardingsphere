@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.min.subdbtablereadwrite.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.min.subdbtablereadwrite.entity.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="INTEGER" property="deleted" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, sex, age, create_user, create_time, update_time, deleted, version
+  </sql>
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tab_user
+  </select>
+
+<!--  <insert id="insert" parameterType="com.min.dbreadwrite.entity.User">-->
+<!--    insert into tab_user (id, user_name, sex, age, create_user, create_time, update_time, deleted, version)-->
+<!--    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},-->
+<!--      #{age,jdbcType=INTEGER}, #{createUser,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},-->
+<!--      #{deleted,jdbcType=INTEGER}, #{version,jdbcType=INTEGER})-->
+<!--  </insert>-->
+<!--  <update id="update" parameterType="com.min.dbreadwrite.entity.User">-->
+<!--    update tab_user set user_name= #{userName,jdbcType=VARCHAR}, sex= #{sex,jdbcType=VARCHAR}, age= #{age,jdbcType=INTEGER},-->
+<!--    update_time= #{updateTime,jdbcType=TIMESTAMP}, deleted= #{deleted,jdbcType=INTEGER}, version= #{version,jdbcType=INTEGER}-->
+<!--    where id=#{id,jdbcType=BIGINT};-->
+<!--  </update>-->
+</mapper>

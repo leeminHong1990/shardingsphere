@@ -28,7 +28,7 @@ spring:
           algorithm-expression: tab_user$->{age % 2} #分片算法行表达式，需符合groovy语法
       tables:
         tab_user:
-          actual-data-nodes: db$->{0..1}.tab_user_$->{0..1} #实际存在数据库和表
+          actual-data-nodes: db$->{0..1}.tab_user$->{0..1} #实际存在数据库和表
           # 经验证这里只能配置分表策略，若不配置以下策略则使用缺省 default-table-strategy 策略
 #          inline: # 行表达式分片策略
 #            sharding-column: age #分片列名称
@@ -41,7 +41,7 @@ mybatis:
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: com.min.readwrite.entity
+  type-aliases-package: com.min.subdbtable.entity
   global-config:
     db-config:
       id-type: assign_id # 自3.3.0开始,默认使用雪花算法+UUID

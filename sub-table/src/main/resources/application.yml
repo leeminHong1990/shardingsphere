@@ -31,7 +31,7 @@ mybatis:
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: com.min.readwrite.entity
+  type-aliases-package: com.min.subtable.entity
   global-config:
     db-config:
       id-type: assign_id # 自3.3.0开始,默认使用雪花算法+UUID
