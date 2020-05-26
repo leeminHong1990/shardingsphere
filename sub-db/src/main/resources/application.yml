@@ -32,3 +32,19 @@ spring:
 
 server:
   port: 28891
+
+mybatis:
+  config-location: classpath:mybatis-config.xml #指定mybatis配置
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.min.readwrite.entity
+  global-config:
+    db-config:
+      id-type: assign_id # 自3.3.0开始,默认使用雪花算法+UUID
+      table-underline: true
+      logic-delete-field: deleted  # 全局逻辑删除字段值 3.3.0开始支持，详情看下面。
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印SQL便于调试
