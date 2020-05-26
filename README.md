@@ -1,11 +1,11 @@
-#### sharding sphere spring demo
+## <font color=#FFD700> 一、项目概述 </font>
 
-##### read-write 读写分离
+#### 1、技术架构
 
-1. 设置主从数据库
-2. 在application.yml中修改数据库配置
-3. 使用master_user.sql创建数据库语句创建表
-4. 使用controller测试读写分离
+项目总体技术选型
 
---- 
-> 使用mybatis-plus 配置了 每张表默认的默认创建时间、修改时间、版本、软删除
+```
+SpringBoot + shardingsphere + Maven  + MySQL + lombok(插件)
+```
+- db-read-write 读写分离
+- sub-db-table 分库分表

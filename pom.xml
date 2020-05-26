@@ -11,6 +11,7 @@
     <modules>
         <module>common-lib</module>
         <module>db-read-write</module>
+        <module>sub-db-table</module>
     </modules>
 
     <parent>
