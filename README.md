@@ -9,3 +9,5 @@ SpringBoot + shardingsphere + Maven  + MySQL + lombok(插件)
 ```
 - db-read-write 读写分离
 - sub-db-table 分库分表
+- sub-table 分表
+- sub-db 分库
