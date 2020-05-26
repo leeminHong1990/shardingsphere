@@ -1,0 +1,27 @@
+spring:
+  shardingsphere:
+    datasource: #数据源配置，可配置多个data_source_name
+      names: db
+      db:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver #数据库驱动类名
+        url: jdbc:mysql://localhost:3306/test2?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai  #数据库url连接
+        username: root #数据库用户名
+        password: 12345678 #数据库密码
+    props:
+      sql:
+        show: true
+    sharding:
+      default-table-strategy: # 缺省分表策略，缺省表示使用默认分库策略，standard complex inline hint策略只能选其一
+        inline: #行表达式分片策略
+          sharding-column: id #分片列名称
+          algorithm-expression: tab_user$->{id % 2} #分片算法行表达式，需符合groovy语法
+      tables:
+        tab_user:
+          actual-data-nodes: db.tab_user_$->{0..1}
+          # 若不配置以下分表策略则使用缺省分表策略
+#          inline: # 行表达式分片策略
+#            sharding-column: id #分片列名称
+#            algorithm-expression: tab_user$->{id % 2} #分片算法行表达式，需符合groovy语法
+server:
+  port: 28890
