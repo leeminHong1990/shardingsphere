@@ -13,6 +13,7 @@
         <module>db-read-write</module>
         <module>sub-db-table</module>
         <module>sub-table</module>
+        <module>sub-db</module>
     </modules>
 
     <parent>
