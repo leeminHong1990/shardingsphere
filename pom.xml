@@ -15,6 +15,7 @@
         <module>sub-table</module>
         <module>sub-db</module>
         <module>sub-db-table-read-write</module>
+        <module>sub-table-read-write</module>
     </modules>
 
     <parent>

@@ -27,7 +27,7 @@ https://localhost:28892/users
 }
 ```
 
-5. 使用get请求某个user。可以看到从从库中读出的数据。
+6. 使用get请求某个user。可以看到从从库中读出的数据。
 ```url
 https://localhost:28892/users/{id}
 ```
