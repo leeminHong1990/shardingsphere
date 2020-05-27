@@ -10,7 +10,7 @@
 3. run application
 4. 使用postman post请求提交以下age为奇数user。 由于id是随机生成的可以看到偶数id且age为奇数在test数据库tab_user1中奇数，奇数id且age为奇数在test88数据库tab_user1中，同时从数据库中也同步数据。
 ```url
-https://localhost:28889/users
+https://localhost:28892/users
 {
     "age":19,
     "userName":"min",
@@ -19,7 +19,7 @@ https://localhost:28889/users
 ```
 5. 修改 post请求的age为偶数提交user。 可以看到偶数id且age为偶数在test数据库tab_user0中奇数，奇数id且age为偶数在test88数据库tab_user0中，同时从数据库中也同步数据。
 ```url
-https://localhost:28889/users
+https://localhost:28892/users
 {
     "age":19,
     "userName":"min",
@@ -29,7 +29,7 @@ https://localhost:28889/users
 
 5. 使用get请求某个user。可以看到从从库中读出的数据。
 ```url
-https://localhost:28889/users/{id}
+https://localhost:28892/users/{id}
 ```
 
 `注意` ShardingSphere并不支持`CASE WHEN`、`HAVING`、`UNION (ALL)`，`有限支持子查询`。这个官网有详细说明。
