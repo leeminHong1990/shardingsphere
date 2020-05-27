@@ -1,0 +1,88 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: master0,slave01,slave02,master1,slave11,slave12
+      master0: # 数据源 主库0
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.124.56:3306/test?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+        username: kbe
+        password: 123456
+      slave01: # 数据源 从库01
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+        username: root
+        password: 12345678
+      slave02: # 数据源 从库02
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.124.55:3306/test?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+        username: root
+        password: 12345678
+      master1: # 数据源 主库1
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.124.56:3306/test88?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+        username: kbe
+        password: 123456
+      slave11: # 数据源 从库11
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/test88?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+        username: root
+        password: 12345678
+      slave12: # 数据源 从库12
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.124.55:3306/test88?characterEncoding=utf-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+        username: root
+        password: 12345678
+    props:
+      sql:
+        show: true
+    sharding:
+      # 主从
+      master-slave-rules:
+        master0:
+          load-balance-algorithm-type: round_robin
+          master-data-source-name: master0
+          slave-data-source-names: slave01,slave02
+        master1:
+          load-balance-algorithm-type: round_robin
+          master-data-source-name: master1
+          slave-data-source-names: slave11,slave12
+      # 分库分表
+      default-database-strategy: # 缺省分库策略，缺省表示使用默认分库策略，standard complex inline hint策略只能选其一
+        inline: #行表达式分片策略
+          sharding-column: id #分片列名称
+          algorithm-expression: master$->{id % 2} #分片算法行表达式，需符合groovy语法
+#      default-table-strategy: # 缺省分表策略，缺省表示使用默认分库策略，standard complex inline hint策略只能选其一
+#        inline: #行表达式分片策略
+#          sharding-column: age #分片列名称
+#          algorithm-expression: tab_user$->{age % 2} #分片算法行表达式，需符合groovy语法
+      tables:
+        tab_user:
+          actual-data-nodes: master$->{0..1}.tab_user #实际存在数据库和表
+          # 经验证这里只能配置分表策略，若不配置以下策略则使用缺省 default-table-strategy 策略
+#          inline: # 行表达式分片策略
+#            sharding-column: age #分片列名称
+#            algorithm-expression: tab_user$->{age % 2} #分片算法行表达式，需符合groovy语法
+server:
+  port: 28894
+
+mybatis:
+  config-location: classpath:mybatis-config.xml #指定mybatis配置
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.min.subdbtablereadwrite.entity
+  global-config:
+    db-config:
+      id-type: assign_id # 自3.3.0开始,默认使用雪花算法+UUID
+      table-underline: true
+      logic-delete-field: deleted  # 全局逻辑删除字段值 3.3.0开始支持，详情看下面。
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印SQL便于调试
